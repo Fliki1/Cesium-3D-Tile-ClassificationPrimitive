@@ -132,3 +132,4 @@ dist
 
 cesiumTile/
 data/
+js/cesiumConfig.js
