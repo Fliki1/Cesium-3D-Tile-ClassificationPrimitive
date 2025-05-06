@@ -12,8 +12,6 @@ def recolor_by_class(input_path, color_map, output_path=None):
     las = laspy.read(input_path)
     classifications = las.classification
 
-    total_colored = 0
-
     for cls_str, rgb in color_map.items():
         cls = int(cls_str)
         mask = classifications == cls
@@ -36,7 +34,7 @@ def recolor_by_class(input_path, color_map, output_path=None):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Use: python script.py <cloud.las> <color_map.json>")
+        print("Usage: python script.py <cloud.las> <color_map.json> [output_path]")
         sys.exit(1)
 
     input_las = sys.argv[1]
