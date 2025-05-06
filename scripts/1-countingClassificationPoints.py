@@ -27,14 +27,27 @@ def count_classified_points(project_path):
         return
 
     class_names = {
-        0: "Unclassified",
-        1: "Ground",
-        2: "Low Vegetation",
-        3: "Medium Vegetation",
-        4: "High Vegetation",
-        5: "Building",
-        6: "Road",
-        9: "Water"
+        0: "Created",
+        1: "Unclassified",
+        2: "Ground",
+        3: "Low Vegetation",
+        4: "Medium Vegetation",
+        5: "High Vegetation",
+        6: "Building",
+        7: "Low Point",
+        8: "Model Key Point",
+        9: "Water",
+        10: "Rail",
+        11: "Road Surface",
+        12: "Overlap Points",
+        13: "Wire Guard",
+        14: "Wire Conductor",
+        15: "Transmission Tower",
+        16: "Wire Connector",
+        17: "Bridge Deck",
+        18: "High Noise",
+        19: "Car",
+        20: "Manmade"
     }
 
     print("Number of points for each class:")
