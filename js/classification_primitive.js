@@ -7,10 +7,10 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 
 (async () => {
     // 1. Carica il 3D Tileset
-    const municipioTileSet = await Cesium.Cesium3DTileset.fromUrl("../tiled/tileset.json");
-    viewer.scene.primitives.add(municipioTileSet);
-    await municipioTileSet.readyPromise;
-    viewer.zoomTo(municipioTileSet);
+    const maresaTileSet = await Cesium.Cesium3DTileset.fromUrl("../tiled/tileset.json");
+    viewer.scene.primitives.add(maresaTileSet);
+    await maresaTileSet.readyPromise;
+    viewer.zoomTo(maresaTileSet);
 
     // 2. Carica il GeoJSON
     const response = await fetch("../shapes/water_point_3D.geojson");
