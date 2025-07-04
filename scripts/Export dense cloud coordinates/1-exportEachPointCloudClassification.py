@@ -52,6 +52,9 @@ def exportEachClassificationCloud(project_path):
 
     project_dir = os.path.dirname(project_path)
 
+    # Set coordinate system (WGS84)
+    crs = Metashape.CoordinateSystem("EPSG::4326")
+
     print("Number of points for each class:")
     for cls, count in sorted(point_cloud.point_count_by_class.items()):
         name = class_names.get(cls, f"Class {cls}")
@@ -64,7 +67,8 @@ def exportEachClassificationCloud(project_path):
             format=Metashape.PointCloudFormatLAS,
             save_point_color=True,
             save_point_classification=True,
-            classes=[cls]
+            classes=[cls],
+            crs=crs
         )
         print(f"Exported {name}: {export_path}")
 

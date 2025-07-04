@@ -13,7 +13,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
     viewer.zoomTo(maresaTileSet);
 
     // 2. Carica il GeoJSON
-    const response = await fetch("../shapes/water_point_3D.geojson");
+    const response = await fetch("../shapes/cloud_Water_3D.geojson");
     const geojson = await response.json();
 
     // 3. Crea un GeometryInstance per ogni punto
@@ -27,7 +27,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
                 vertexFormat: Cesium.PerInstanceColorAppearance.VERTEX_FORMAT,
                 stackPartitions: 4, // default è 64
                 slicePartitions: 4,
-            }),            
+            }),
             modelMatrix: Cesium.Transforms.eastNorthUpToFixedFrame(position),
             attributes: {
                 color: Cesium.ColorGeometryInstanceAttribute.fromColor(
