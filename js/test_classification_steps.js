@@ -13,15 +13,13 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 });
 
 
-// Carica il 3tz tileset locale
 const municipioTileSet = await Cesium.Cesium3DTileset.fromUrl('../cesiumTile/municipio370/tileset.json');
-// Aggiungi il tileset alla scena
 viewer.scene.primitives.add(municipioTileSet);
 await municipioTileSet.readyPromise;
 
-// Usa le coordinate importate per teletrasportare la camera in Ottignana coordinate
+// set camera position from Town Hall information
 var cartographic = Cesium.Cartographic.fromDegrees(cameraCoordinatesMunicipio.longitude, cameraCoordinatesMunicipio.latitude, cameraCoordinatesMunicipio.height);
-// Imposta la posizione e l'orientamento della camera
+// set camera view
 viewer.camera.setView({
     destination: Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, cartographic.height),
     orientation: {

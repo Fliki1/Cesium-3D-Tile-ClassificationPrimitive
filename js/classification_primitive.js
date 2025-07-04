@@ -6,17 +6,17 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
 });
 
 (async () => {
-    // 1. Carica il 3D Tileset
-    const maresaTileSet = await Cesium.Cesium3DTileset.fromUrl("../tiled/tileset.json");
-    viewer.scene.primitives.add(maresaTileSet);
-    await maresaTileSet.readyPromise;
-    viewer.zoomTo(maresaTileSet);
+    // 1. Load 3D Tileset
+    const tileSet = await Cesium.Cesium3DTileset.fromUrl("../tiled/tileset.json");
+    viewer.scene.primitives.add(tileSet);
+    await tileSet.readyPromise;
+    viewer.zoomTo(tileSet);
 
-    // 2. Carica il GeoJSON
+    // 2. Load DenseCloud coordinates GeoJSON
     const response = await fetch("../shapes/cloud_Water_3D.geojson");
     const geojson = await response.json();
 
-    // 3. Crea un GeometryInstance per ogni punto
+    // 3. Create a GeometryInstance for each point coordinates
     const sphereInstances = geojson.features.map((feature) => {
         const [lon, lat, height] = feature.geometry.coordinates;
         const position = Cesium.Cartesian3.fromDegrees(lon, lat, height);
@@ -37,7 +37,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
         });
     });
 
-    // 4. Crea la Classification Primitive
+    // 4. Create Classification Primitive
     const classificationPrimitive = new Cesium.ClassificationPrimitive({
         geometryInstances: sphereInstances,
         appearance: new Cesium.PerInstanceColorAppearance({
