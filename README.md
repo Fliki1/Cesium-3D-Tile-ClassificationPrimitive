@@ -86,9 +86,11 @@ This approach enables overlaying analytical information onto existing 3D models,
 ## Example Result
 
 The method was successfully validated by visualizing a 75,000-point fracture (1m x 1m) on a model of the Palazzo Maresa facade, providing clear and interactive visual emphasis on the classified area. The following image illustrates in blue the starting dense cloud classification obtained.
+
 ![Dense point cloud Palazzo Maresa facade](img/dense_cloud_classification.jpg)
 
 All coordinates of dense cloud from wall fracture have been saved in GeoJSON and converted in ClassificationPrimitive. Small yellow spheres generated from these points classify and visually highlight the fracture area on the 3D model tiled of the palace.
+
 ![classification primitive](img/classificationprimitive.gif)
 
 ## License
