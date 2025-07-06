@@ -62,7 +62,7 @@ From the ML-generated masks, we extract the coordinates of the underlying 3D poi
   ]
 }
 ```
-<p align="center">*A snippet of a GeoJSON file representing a 3D point cloud.*</p>
+<p align="center">_A snippet of a GeoJSON file representing a 3D point cloud._</p>
 
 ## CesiumJS Classification Primitive
 The core of this project lies in leveraging CesiumJS's ClassificationPrimitive. This powerful feature allows you to dynamically apply styles and masks to 3D Tiles models, terrain, or other models present in the scene.
